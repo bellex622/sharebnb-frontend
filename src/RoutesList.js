@@ -1,4 +1,5 @@
 import { Routes, Route, Navigate } from "react-router-dom";
+import Listings from "./Listings";
 // import { useContext } from "react";
 import Homepage from "./Homepage";
 // import LoginForm from "./LoginForm";
@@ -6,14 +7,14 @@ import Homepage from "./Homepage";
 // import ProfileForm from "./ProfileForm";
 // import userContext from "./userContext";
 
-function RoutesList(){
+function RoutesList() {
   // const { hasToken } = useContext(userContext);
 
   return (
     <Routes>
-          <Route path="/" element={<Homepage />} />
-          <Route path="/listings" element={<Homepage />} />
-          <Route path="*" element={<Navigate to="/" />} />
+      <Route path="/" element={<Homepage />} />
+      <Route path="/listings" element={<Listings />} />
+      <Route path="*" element={<Navigate to="/" />} />
     </Routes>
   );
 
