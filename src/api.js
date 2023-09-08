@@ -22,7 +22,7 @@ class sharebnbApi {
       : {};
 
     try {
-      return (await axios({ url, method, data, params})).data;
+      return (await axios({ url, method, data, params })).data;
     } catch (err) {
       console.error("API Error:", err.response);
       let message = err.response.data.error.message;
@@ -39,6 +39,12 @@ class sharebnbApi {
   /** Get detail of a listing. */
   static async getListingDetail(id) {
     let res = await this.request(`listings/${id}`);
+    return res.listing;
+  }
+
+  /** Create a new listing. */
+  static async createNewListing(data) {
+    let res = await this.request("listings", data, "post");
     return res.listing;
   }
 

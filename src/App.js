@@ -5,15 +5,19 @@ import { BrowserRouter } from "react-router-dom";
 import Navigation from "./Navigation";
 import RoutesList from "./RoutesList";
 import decode from "jwt-decode";
+import sharebnbApi from './api';
 
 function App() {
+  async function handleCreateNewListing(formData) {
+    const listing = await sharebnbApi.createNewListing(formData);
+  }
 
   return (
     <div className="App">
-        <BrowserRouter>
-          <Navigation />
-          <RoutesList />
-        </BrowserRouter>
+      <BrowserRouter>
+        <Navigation />
+        <RoutesList handleCreateNewListing={handleCreateNewListing} />
+      </BrowserRouter>
     </div>
   );
 }

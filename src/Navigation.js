@@ -19,6 +19,12 @@ function Navigation() {
           end>
           Listings
         </NavLink>
+
+        <NavLink to="/newlistingform"
+          className="Navigation-listings"
+          end>
+          Create New Listing
+        </NavLink>
       </div>
 
     </nav >
