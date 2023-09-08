@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
-import ListingCard from "./ListingCard";
+import ListingCard from "./ListingDetail";
 import sharebnbApi from './api';
 import { Link } from 'react-router-dom';
 
-const BASE_URL = "http://localhost:5001";
 
 function Listings() {
   console.log('do we reach here');
@@ -34,15 +33,17 @@ function Listings() {
     return <h1>Loading...</h1>;
   }
 
-  const displayListings = listings.data.map(({ id, photo_url, price, description }) =>
-    <Link key={id} to={`/listings/${id}`}>
-      <ListingCard photo_url={photo_url} description={description} price={price} />
-    </Link>);
-
 
   return (
     <div className="List">
-      {displayListings}
+      <ul>
+        {listings.data.map(
+          listing =>
+            <li key={listing.id}>
+              <Link to={`/listings/${listing.id}`}>{listing.title}</Link>
+            </li>
+        )}
+      </ul>
     </div>
   );
 

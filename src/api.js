@@ -16,25 +16,32 @@ class sharebnbApi {
     console.debug("API Call:", endpoint, data, method);
 
     const url = `${BASE_URL}/${endpoint}`;
-    const headers = { "Access-Control-Allow-Origin": "* " };
+    // const headers = { "Access-Control-Allow-Origin": "* " };
     const params = (method === "get")
       ? data
       : {};
 
     try {
-      return (await axios({ url, method, data, params, headers })).data;
+      return (await axios({ url, method, data, params})).data;
     } catch (err) {
       console.error("API Error:", err.response);
       let message = err.response.data.error.message;
       throw Array.isArray(message) ? message : [message];
     }
   }
+
+  /** Get all listings. */
   static async getListings() {
-
-    let res = await this.request("listings/");
-
+    let res = await this.request("listings");
     return res.listings;
   }
+
+  /** Get detail of a listing. */
+  static async getListingDetail(id) {
+    let res = await this.request(`listings/${id}`);
+    return res.listing;
+  }
+
 }
 
 
