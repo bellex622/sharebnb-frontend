@@ -2,7 +2,18 @@ import React, { useContext } from "react";
 // import userContext from "./userContext";
 import { NavLink } from "react-router-dom";
 
-
+/** Render NavLinks to corresponding routes.
+ *
+ * props:
+ * -
+ *
+ * state:none
+ *
+ * context:
+ * -
+ *
+ * App -> Navigation
+ */
 function Navigation() {
 
   return (

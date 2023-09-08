@@ -1,6 +1,17 @@
 import React, { useState } from "react";
-import sharebnbApi from "./api";
 
+
+
+/** Form for create new listing
+ *
+ * state:
+ * -formdata: {title, username, price, description}
+ *
+ * props:
+ * -handleCreateNewListing: function passed from parent component
+ *
+ * RoutesList -> NewListingForm
+ */
 function NewListingForm({ handleCreateNewListing }) {
   const initialState = {
     title: "",
@@ -9,11 +20,11 @@ function NewListingForm({ handleCreateNewListing }) {
     description: ""
   };
 
-  // const { signup } = useContext(userContext);
+
 
   const [formData, setFormData] = useState(initialState);
 
-  /** Send {title, username, price, description, images} to parent
+  /** Send {title, username, price, description} to parent
    *    & clear form. */
   function handleSubmit(evt) {
     evt.preventDefault();

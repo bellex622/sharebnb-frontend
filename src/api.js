@@ -44,6 +44,7 @@ class sharebnbApi {
 
   /** Create a new listing. */
   static async createNewListing(data) {
+    console.log("data we submit",data)
     let res = await this.request("listings", data, "post");
     return res.listing;
   }

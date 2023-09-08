@@ -3,7 +3,18 @@ import ListingCard from "./ListingDetail";
 import sharebnbApi from './api';
 import { Link } from 'react-router-dom';
 
-
+/** Renders all listings from all hosts
+ *
+ * props:
+ * -
+ *
+ * state:
+ * -listings: an array of listing detail object
+ *  ->[{id, title, username, price, description, is_reserved},{...}]
+ *
+ *
+ * RoutesList -> Listings
+ */
 function Listings() {
   console.log('do we reach here');
   const [listings, setListings] = useState({

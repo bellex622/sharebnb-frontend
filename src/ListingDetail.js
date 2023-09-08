@@ -7,13 +7,17 @@ import './ListingDetail.css';
 /** Presentational Component.
  *  Provide listing detail.
  *
- * Prop:
- * outdoor listing { photo_url, price, description}
- * State: none
+ * Props:
+ * -
+ *
+ * State:
+ * - listingDetail: an object of listing detail for a single listing
+ *  ->{listing: {id, title, username, images, price, description,
+ * is_reserved}}
+ *  where images is an array of image objects [{id,image_url},{...}]
  *
  * RoutesList -> ListingDetail
  */
-
 function ListingDetail() {
 
   const { id } = useParams();
