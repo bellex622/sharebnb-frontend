@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import sharebnbApi from "./api";
 import { useParams } from 'react-router-dom';
+import './ListingDetail.css';
 
 
 /** Presentational Component.
@@ -19,15 +20,16 @@ function ListingDetail() {
 
   const [listingDetail, setListingDetail] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  console.log("listingDetail", listingDetail)
 
 
 
   useEffect(function fetchListingDetailWhenMounted() {
     async function fetchListingDetail() {
 
-        const listingDetailResult = await sharebnbApi.getListingDetail(id);
-        setListingDetail(listingDetailResult);
-        setIsLoading(false);
+      const listingDetailResult = await sharebnbApi.getListingDetail(id);
+      setListingDetail(listingDetailResult);
+      setIsLoading(false);
 
     }
     fetchListingDetail();
@@ -40,10 +42,10 @@ function ListingDetail() {
 
   return (
     <div className="ListingDetail">
-        <p>{listingDetail.description}</p>
-        <p>{listingDetail.price}</p>
-        <img src={listingDetail.photo_url}/>
-        <p>contact {listingDetail.username}</p>
+      <p>{listingDetail.description}</p>
+      <p>{listingDetail.price}</p>
+      {listingDetail.images.map(image => <img key={image.id}src={image.image_url} />)}
+      <p>contact {listingDetail.username}</p>
     </div>
   );
 }
